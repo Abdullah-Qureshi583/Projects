@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Square&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #e6ccb2;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  padding-top: 30px;
+}
+h1 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 4vmax;
+  color: #644b2c;
+  margin-bottom: 20px;
+}
+.time,
+.date {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  gap: 3px;
+}
+
+.cont {
+  border-radius: 1vh;
+  min-height: 6vmax;
+  box-shadow: 7px 7px 6px 0px #a07a4d;
+  font-family: "Nova Square", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #ddb892;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4.5vmax;
+  padding: 3vh 20px;
+  border: 3px solid #b08968;
+  position: relative;
+  color: #7f5539;
+}
+
+.cont p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  position: absolute;
+  font-size: 3vh;
+  color: #9c6644;
+  top: 2%;
+}
+
+.button-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 19px;
+  gap: 4px;
+}
+button {
+  outline: none;
+  width: 50%;
+  font-size: 4vh;
+  padding: 0.5vmax 2vmax;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: #ede0d4;
+  background-color: #7f5539;
+}
+button:hover {
+  background-color: #ede0d4;
+  color: #7f5539;
+}
