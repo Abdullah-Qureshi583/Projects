@@ -1,0 +1,127 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f7f7f4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  /* background-color: #3b0a0a; */
+}
+
+.container {
+  background-color: #d6ccc2;
+  height: 21em;
+  width: 18em;
+  padding: 1rem;
+  color: #14213d;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 0.9rem;
+  font-weight: 900;
+  color: #000;
+  font-size: 1.6rem;
+}
+
+form input,
+select,
+button {
+  width: 100%;
+  border: none;
+  border-radius: 0.45rem;
+  outline: none;
+}
+
+form input {
+  padding-left: 0.5rem;
+  margin-top: 0.2rem;
+  height: 2rem;
+  font-size: 0.9rem;
+  border: 1px solid lightgray;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.dropdown i {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid rgb(163, 160, 160);
+  background-color: #edede9;
+}
+
+.select-container img {
+  max-width: 2rem;
+}
+
+.select-container select {
+  font-size: 0.8rem;
+  background-color: #edede9;
+}
+
+/* msg */
+.msg {
+  margin: 1.3rem 0 1.5rem 0;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+/* submit */
+.submit {
+  height: 2.3rem;
+  background-color: #14213d;
+  color: #fff;
+  font-size: 1.1rem;
+  border: 2px solid #14213d;
+}
+
+.submit:hover {
+  cursor: pointer;
+  background-color: #010307;
+}
+
+#creator {
+  height: 80px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  color: #14213d;
+  font-weight: 400;
+  animation: apply-opacity 7s ease-in-out;
+}
+
+@keyframes apply-opacity {
+  from {
+    opacity: 0;
+    font-size: 1.3rem;
+    color: bisque;
+  }
+  to {
+    opacity: 100%;
+    font-size: 1.8rem;
+    color: #14213d;
+  }
+}
