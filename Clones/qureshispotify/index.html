@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utility.css" />
+  </head>
+  <body>
+    <!-- left section -->
+    <section class="left">
+      <!--header-->
+      <section class="header">
+        <div class="logo-container">
+          <img class="invert logo" src="icons/logo.svg" alt="" />
+        </div>
+        <div class="home-container">
+          <img class="invert home" src="icons/home.svg" alt="" />
+          <p>Home</p>
+        </div>
+        <div class="search-container">
+          <img class="invert search" src="icons/search.svg" alt="" />
+          <p>Search</p>
+        </div>
+        <img class="invert close" src="icons/close.svg" alt="" />
+      </section>
+
+      <!--library and footer-->
+
+      <div class="lib-and-footer">
+        <!-- library -->
+        <section class="library">
+          <div class="yourlibrary-container">
+            <div class="logo-and-p">
+              <img class="invert" src="icons/library.svg" alt="" />
+              <p>YourLibrary</p>
+            </div>
+            <img class="invert" src="icons/plus.svg" alt="" />
+          </div>
+          <ul class="song-list"></ul>
+        </section>
+
+        <!-- footer -->
+        <section class="footer">
+          <ul class="links">
+            <li class="legal">
+              <a href="https://www.spotify.com/pk-en/legal/">
+                <span>Legal</span>
+              </a>
+            </li>
+            <li class="safety-and-privacy-center">
+              <a href="https://www.spotify.com/pk-en/safetyandprivacy/">
+                <span>Safety &amp; Privacy Center</span>
+              </a>
+            </li>
+            <li class="privacy-policy">
+              <a href="https://www.spotify.com/pk-en/legal/privacy-policy/">
+                <span>Privacy Policy</span>
+              </a>
+            </li>
+            <li class="about-ads">
+              <a href="https://www.spotify.com/pk-en/legal/privacy-policy/#s3">
+                <span>About Ads</span>
+              </a>
+            </li>
+            <li class="cookies">
+              <a href="https://www.spotify.com/pk-en/legal/cookies-policy/">
+                <span>Cookies</span>
+              </a>
+            </li>
+            <li class="accessibility">
+              <a href="https://www.spotify.com/pk-en/accessibility/">
+                <span>Accessibility</span>
+              </a>
+            </li>
+          </ul>
+          <div class="language-container">
+            <div class="language">
+              <img class="invert" src="icons/language.svg" alt="">
+              <p>English</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- right section -->
+
+    <section class="right">
+
+      <!-- navbar -->
+      <nav class="navbar">
+        <div class="options">
+          <img class="invert hamburger" src="icons/hamburger.svg" alt="" />
+          <img class="invert left-arrow" src="icons/left-arrow.svg" alt="" />
+          <img class="invert right-arrow" src="icons/right-arrow.svg" alt="" />
+        </div>
+        <div class="buttons">
+          <button class="signup">Sign up</button>
+          <button class="login">Login</button>
+        </div>
+      </nav>
+
+      <!-- main -->
+      <main>
+        <h1>Spotify PlayList</h1>
+        
+        <div class="card-container"></div>
+      </main>
+
+      <!-- playbar -->
+      <div class="playbar">
+        <div class="songinfo"></div>
+
+        <div class="song-buttons">
+          <img class="invert previous" src="icons/previous.svg" alt="|&#60;" />
+          <img class="invert main-play" src="icons/play.svg" alt="o" />
+          <img class="invert next" src="icons/next.svg" alt="&#62;|" />
+        </div>
+
+        <div class="time-n-volume">
+          <div class="songtime">00:00 / 00:00</div>
+          <div class="vol-n-range">
+            <img class="invert volume" src="icons/volume.svg" alt="" />
+            <input type="range" class="range" />
+          </div>
+        </div>
+
+        <div class="seekbar-container">
+          <div class="seekbar">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="js/main.js"></script>
+  </body>
+</html>
