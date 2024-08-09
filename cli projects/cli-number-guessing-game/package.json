@@ -1,0 +1,19 @@
+{
+  "name": "aq-cli-number-guessing-game",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "This is a simple cli based number guessing game",
+  "main": "index.js",
+  "bin": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.16"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7"
+  }
+}
