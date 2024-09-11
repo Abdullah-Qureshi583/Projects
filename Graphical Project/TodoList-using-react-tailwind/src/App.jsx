@@ -117,7 +117,7 @@ function App() {
     >
       <Navbar theme={theme} />
       <main className="p-8 pt-[63px] ">
-        <div className="themes flex gap-2 fixed right-5 z-50 mt-2">
+        <div className="themes flex gap-2 fixed right-5 z-50 ">
           <div
             onClick={() => {
               changeTheme("darkGreen");
@@ -137,86 +137,88 @@ function App() {
             className="bg-gradient-to-r from-[#131f21] to-[#000000] border h-8 rounded-full cursor-pointer w-8"
           ></div>
         </div>
-        <div className="   px-7  container m-auto   flex items-center flex-col py-3">
+        <div className="   px-7 mt-7 sm:mt-0 container m-auto   flex items-center flex-col py-3">
           <div className="px-2 ">
-            <h1 className="text-center font-semibold text-5xl mb-6 ">
-              {/* Stay Organized with TaskFlow */}
-              Just do it.<span className="font-extralight text-6xl">|</span>
+            <h1 className="text-center font-semibold text-4xl xsm:text-5xl mb-6 ">
+              Just do it.<span className="font-extralight text-4xl xsm:text-6xl">|</span>
             </h1>
-            <h2 className="font-bold text-xl self-start mb-2">Add Todo...</h2>
-            <div className="inputfield flex  h-9  ">
-              <input
-                ref={inputRef}
-                className={
-                  theme === "darkGreen"
-                    ? "px-2 min-w-[40vw] rounded-s-full h-full focus:outline-none bg-[#111312] text-[#9c9fa1] placeholder-[#9c9fa1]"
-                    : theme === "skyBlue"
-                    ? "px-2 min-w-[40vw] rounded-s-full h-full focus:outline-none bg-[#afb3b6] text-[#252a2d] placeholder-[#252a2d]"
-                    : theme === "black"
-                    ? "px-2 min-w-[40vw] rounded-s-full h-full focus:outline-none bg-[#00364b] text-[#fffdfe] placeholder-[#e4e2e3]"
-                    : ""
-                }
-                value={todo}
-                onChange={handleChange}
-                onKeyDown={handleEnterKey}
-                type="text"
-                placeholder="Type your task here..."
-              />
-              <button
-                className={
-                  theme === "darkGreen"
-                    ? "h-full   rounded-e-full  px-4  hover:font-bold disabled:text-[#5f5b5b]  disabled:font-normal bg-[#f7e4e0] text-[#0d1013]"
-                    : theme === "skyBlue"
-                    ? "h-full   rounded-e-full  px-4  hover:font-bold disabled:text-[#5f5b5b]  disabled:font-normal bg-[#dae7ee] text-[#0d1013]"
-                    : theme === "black"
-                    ? "h-full   rounded-e-full  px-4  hover:font-bold disabled:text-[#7b898e]  disabled:font-normal bg-[#002c3e] text-[#d1f0f5]"
-                    : ""
-                }
-                disabled={todo.length <= 0}
-                onClick={handleSave}
-              >
-                save
-              </button>
-            </div>
-            <div className="flex w-full justify-between">
-              <div>
+            <div className="container m-auto">
+              <h2 className="font-bold text-xl self-start mb-2">Add Todo...</h2>
+              <div className="inputfield flex  h-9  ">
                 <input
-                  type="checkbox"
-                  id="show"
-                  className="mt-3 mr-3 cursor-pointer"
-                  onChange={handleShowFinished}
-                  checked={showFinished}
+                  ref={inputRef}
+                  className={
+                    theme === "darkGreen"
+                      ? "px-2 min-w-[40vw] w-full rounded-s-full h-full focus:outline-none bg-[#111312] text-[#9c9fa1] placeholder-[#9c9fa1]"
+                      : theme === "skyBlue"
+                      ? "px-2 min-w-[40vw] w-full rounded-s-full h-full focus:outline-none bg-[#afb3b6] text-[#252a2d] placeholder-[#252a2d]"
+                      : theme === "black"
+                      ? "px-2 min-w-[40vw] w-full rounded-s-full h-full focus:outline-none bg-[#00364b] text-[#fffdfe] placeholder-[#e4e2e3]"
+                      : ""
+                  }
+                  value={todo}
+                  onChange={handleChange}
+                  onKeyDown={handleEnterKey}
+                  type="text"
+                  placeholder="Type your task here..."
                 />
-                <label
-                  className="font-semibold text-md  self-start cursor-pointer "
-                  htmlFor="show"
+                <button
+                  className={
+                    theme === "darkGreen"
+                      ? "h-full   rounded-e-full  px-4  hover:font-bold disabled:text-[#5f5b5b]  disabled:font-normal bg-[#f7e4e0] text-[#0d1013]"
+                      : theme === "skyBlue"
+                      ? "h-full   rounded-e-full  px-4  hover:font-bold disabled:text-[#5f5b5b]  disabled:font-normal bg-[#dae7ee] text-[#0d1013]"
+                      : theme === "black"
+                      ? "h-full   rounded-e-full  px-4  hover:font-bold disabled:text-[#7b898e]  disabled:font-normal bg-[#002c3e] text-[#d1f0f5]"
+                      : ""
+                  }
+                  disabled={todo.length <= 0}
+                  onClick={handleSave}
                 >
-                  Show Finished
-                </label>
+                  save
+                </button>
               </div>
+              <div className="flex w-full justify-between">
+                <div>
+                  <input
+                    type="checkbox"
+                    id="show"
+                    className="mt-3 mr-3 cursor-pointer"
+                    onChange={handleShowFinished}
+                    checked={showFinished}
+                  />
+                  <label
+                    className="font-semibold text-md  self-start cursor-pointer "
+                    htmlFor="show"
+                  >
+                    Show Finished
+                  </label>
+                </div>
 
-              <button
-                onClick={handleDeleteAll}
-                className={
-                  theme === "darkGreen"
-                    ? "rounded-md h-8 mt-2   px-4  hover:font-bold  bg-[#f7e4e0] text-[#0d1013]"
-                    : theme === "skyBlue"
-                    ? "rounded-md h-8 mt-2 px-4  hover:font-bold  bg-[#ccdbe3] text-[#0d1013]"
-                    : theme === "black"
-                    ? "rounded-md h-8 mt-2  px-4  hover:font-bold  bg-[#002c3e] text-[#d1f0f5]"
-                    : ""
-                }
-              >
-                Delete All
-              </button>
+                <button
+                  onClick={handleDeleteAll}
+                  className={
+                    theme === "darkGreen"
+                      ? "rounded-md h-8 mt-2   px-4  hover:font-bold  bg-[#f7e4e0] text-[#0d1013]"
+                      : theme === "skyBlue"
+                      ? "rounded-md h-8 mt-2 px-4  hover:font-bold  bg-[#ccdbe3] text-[#0d1013]"
+                      : theme === "black"
+                      ? "rounded-md h-8 mt-2  px-4  hover:font-bold  bg-[#002c3e] text-[#d1f0f5]"
+                      : ""
+                  }
+                >
+                  Delete All
+                </button>
+              </div>
             </div>
+
             <div className="h-[1px] bg-black w-3/4 m-auto md:mt-4 mt-2"></div>
             <section className=" mt-2 xsm:px-4  ">
               <div className=" bg-transparent space-y-2  w-10/12  m-auto">
                 {todos.length > 0 ? (
                   <h2 className="font-bold text-xl self-start">Your Todos</h2>
                 ) : (
-                  <h2 className="font-bold text-xl self-start">
+                  <h2 className="font-bold text-xl text-center self-start">
                     Add a todo to Preview it here{" "}
                   </h2>
                 )}
