@@ -32,7 +32,7 @@ const sendVerificationCode = async ({ email, code }) => {
 
   try {
     // Attempt to send the email
-    // await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
     return { success: true, message: "Email sent successfully", error: false };
   } catch (error) {
     console.error("Error sending email:", error);

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import {
   AreaChart,
   Area,
@@ -16,7 +16,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { redirect } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 
-const UrlAnalytics = () => {
+const UrlAnalyticsContent = () => {
   const params = useSearchParams();
   const router = useRouter();
   const urlId = params.get("urlId");
@@ -293,6 +293,15 @@ const UrlAnalytics = () => {
         </div>
       </div>
     </div>
+  );
+};
+
+
+const UrlAnalytics = () => {
+  return (
+    <Suspense fallback={<p>Loading analytics...</p>}>
+      <UrlAnalyticsContent />
+    </Suspense>
   );
 };
 
