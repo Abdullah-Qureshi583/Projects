@@ -163,7 +163,7 @@ const Dashboard = () => {
   return (
     <div className=" bg-blue-50 container mx-auto  p-8 ">
       {userName && (
-        <div className="flex gap-x-2 mb-1 items-end  justify-center">
+        <div className="flex flex-col md:flex-row gap-x-2 mb-2 items-center md:items-end  justify-center">
           <span className="text-4xl font-bold text-blue-900">Welcome</span>{" "}
           <h2 className="text-4xl font-bold text-blue-950">
             {userName.slice(0, 1).toUpperCase() + userName.slice(1)}
