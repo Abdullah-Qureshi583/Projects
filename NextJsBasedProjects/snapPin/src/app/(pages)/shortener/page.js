@@ -169,6 +169,7 @@ const Shorten = () => {
                 Enter your long URL
               </label>
               <Input
+                required
                 ref={inputRef} // Attach the ref to the input element
                 onClick={() => {
                   inputRef.current.select(); // Select the input's text when clicked

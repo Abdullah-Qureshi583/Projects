@@ -11,7 +11,7 @@ export default async function ShortenUrl({ params }) {
   if (result?.success && result?.longUrl) {
     const longUrl = result.longUrl;
     redirect(longUrl); // Redirect to the long URL
-  } else if (result?.error) {
+  } else  {
     redirect("/");
   }
 
