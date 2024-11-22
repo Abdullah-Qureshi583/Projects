@@ -6,8 +6,8 @@ import Nevigation from "@/components/Nevigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "SnipLink - Your Ultimate URL Shortener",// SnapPin
-  description: "Simplify your links and share them effortlessly with SnipLink. Fast, reliable, and user-friendly URL shortening.",
+  title: "SnapPin - Your Ultimate URL Shortener",
+  description: "Simplify your links and share them effortlessly with SnapPin. Fast, reliable, and user-friendly URL shortening.",
 };
 
 
