@@ -43,6 +43,7 @@ const handler = NextAuth({
     async signIn({ user, account }) {
       if (user) {
         const personData = {
+          name: user.name,
           email: user.email,
           isVerified: true,
           updatedAt: Date.now(),
@@ -73,6 +74,7 @@ const handler = NextAuth({
       // On the first sign-in, store user information in the token
       if (user && account) {
         token.user = {
+          name: user.name,          
           email: user.email,
           isVerified: user.isVerified || false,
           updatedAt: user.updatedAt || Date.now(),

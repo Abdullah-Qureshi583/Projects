@@ -15,8 +15,10 @@ const saveUser = async (user) => {// also need provider
     });
 
     if (!existingUser) {
+      console.log("in save user before saving the user is ", user)
       const newUser = new User(user);
       const savedUser = await newUser.save();
+      console.log("in save user after saving the user is now the savedUser is", savedUser);
       return savedUser
         ? { success: true, error: false, message: "User saved successfully!" }
         : { success: false, error: true, message: "Failed to save user" };

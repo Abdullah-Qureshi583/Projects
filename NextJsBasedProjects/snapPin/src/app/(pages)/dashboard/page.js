@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { redirect } from "next/navigation";
 
 import { useSession } from "next-auth/react";
+import { getUserName } from "@/actions/getUserName";
 
 function calculateTimeDifference(lastClick) {
   const lastClickDate = new Date(lastClick);
@@ -47,9 +48,9 @@ const Dashboard = () => {
   const [copiedId, setCopiedId] = useState(null);
   const [showAlert, setShowAlert] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
+  const [userName, setUserName] = useState("");
   const [urls, setUrls] = useState([]);
   const { data: session } = useSession();
-
   useEffect(() => {
     if (session == null && session !== undefined) {
       redirect("/");
@@ -58,6 +59,25 @@ const Dashboard = () => {
 
   const email = session?.user?.email;
   const provider = session?.user?.provider;
+  const name = session?.user?.name;
+
+  // get the name of the user
+  useEffect(() => {
+    (async () => {
+      if (email) {
+        console.log("the provider is", provider);
+        if (provider == "credentials") {
+          const a = await getUserName({ email, provider });
+          if (a?.success && a?.name) {
+            setUserName(a.name);
+          }
+        } else {
+          console.log("in else the provider is", provider, name);
+          setUserName(name);
+        }
+      }
+    })();
+  }, [email, provider, session, name]);
 
   // get the data from the server
   useEffect(() => {
@@ -125,6 +145,7 @@ const Dashboard = () => {
       }
     });
   };
+
   const showNotification = (message) => {
     setAlertMessage(message);
     setShowAlert(true);
@@ -138,11 +159,18 @@ const Dashboard = () => {
 
   return (
     <div className=" bg-blue-50 container mx-auto  p-8 ">
-      <div className=" mx-auto">
+      {name && (
+        <div className="flex gap-x-2 mb-1 items-end  justify-center">
+          <span className="text-4xl font-bold text-blue-900">Welcome</span>{" "}
+          <h2 className="text-4xl font-bold text-blue-950">{name}</h2>
+        </div>
+      )}
+      <div className=" mx-auto ">
         <div className="mb-6 flex justify-between items-center">
           <h1 className="text-3xl font-bold text-blue-800">Dashboard</h1>
           <div className="text-gray-600">Total URLs: {urls.length}</div>
         </div>
+        {/* <h2 className="text-2xl font-bold text-blue-900">naem</h2> */}
 
         {showAlert && (
           <Alert className="mb-4 bg-blue-50 border-blue-200">

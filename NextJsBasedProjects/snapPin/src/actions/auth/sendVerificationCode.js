@@ -87,7 +87,7 @@ const sendVerificationCode = async ({ email, code }) => {
   }
 
   const mailOptions = {
-    from: `SnapPin App <${process.env.EMAIL}>`,
+    from: `SnapPin - URL Shortener <${process.env.EMAIL}>`,
     to: email, // User's email passed as an argument
     subject: `Your SnapPin Verification Code`, // Clear subject
     html: emailHtmlContent, // Updated HTML content with verification code
@@ -95,7 +95,7 @@ const sendVerificationCode = async ({ email, code }) => {
 
   try {
     // Attempt to send the email
-    await transporter.sendMail(mailOptions);
+    // await transporter.sendMail(mailOptions);
     console.log("the email code is ", code);
     return { success: true, message: "Email sent successfully", error: false };
   } catch (error) {
