@@ -3,15 +3,14 @@ import connectDB from "@/lib/db/mongodb";
 import User from "@/models/auth/User";
 
 const getUserName = async ({ email, provider }) => {
-    await connectDB();
-    const userExist = await User.findOne({ email, provider });
-    console.log("in get user name", userExist);
+  await connectDB();
+  const user = await User.findOne({ email, provider });
 
-  if (userExist) {
+  if (user) {
     return {
       success: true,
       error: false,
-      name: userExist.name,
+      name: user.name,
       message: "User already exist!",
     };
   }

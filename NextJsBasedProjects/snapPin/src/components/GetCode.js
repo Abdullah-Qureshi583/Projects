@@ -34,8 +34,8 @@ const GetCode = () => {
         if (response.success) {
           setSuccess(true);
           setError(false);
-
-          if (response.isUpdated == false) {
+          // to chceck that the user is reset  or signup
+          if (response.isUpdated == false) {// updated false means signup
             const isSignin = await signIn("credentials", {
               email,
               callbackUrl: "/dashboard",

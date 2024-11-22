@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import { redirect } from "next/navigation";
 
 import { useSession } from "next-auth/react";
-import { getUserName } from "@/actions/getUserName";
+import { getUserName } from "@/actions/auth/getUserName";
 
 function calculateTimeDifference(lastClick) {
   const lastClickDate = new Date(lastClick);
@@ -68,8 +68,11 @@ const Dashboard = () => {
         console.log("the provider is", provider);
         if (provider == "credentials") {
           const a = await getUserName({ email, provider });
-          if (a?.success && a?.name) {
-            setUserName(a.name);
+          console.log("the a is ", a);
+          if (a && a.success && a.name) {
+            console.log("now the name is ", a.name);
+            const name = a.name;
+            setUserName(name);
           }
         } else {
           console.log("in else the provider is", provider, name);
@@ -159,10 +162,12 @@ const Dashboard = () => {
 
   return (
     <div className=" bg-blue-50 container mx-auto  p-8 ">
-      {name && (
+      {userName && (
         <div className="flex gap-x-2 mb-1 items-end  justify-center">
           <span className="text-4xl font-bold text-blue-900">Welcome</span>{" "}
-          <h2 className="text-4xl font-bold text-blue-950">{name}</h2>
+          <h2 className="text-4xl font-bold text-blue-950">
+            {userName.slice(0, 1).toUpperCase() + userName.slice(1)}
+          </h2>
         </div>
       )}
       <div className=" mx-auto ">

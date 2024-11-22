@@ -2,8 +2,7 @@
 import connectDB from "@/lib/db/mongodb";
 import User from "@/models/auth/User";
 
-
-const checkUserExist = async ({email, provider}) => {
+const checkUserExist = async ({ email, provider }) => {
   await connectDB();
   const userExist = await User.findOne({ email, provider });
 
@@ -15,9 +14,9 @@ const checkUserExist = async ({email, provider}) => {
     };
   } else {
     return {
-        success: false,
-        error: true,
-        message: "User not found!",
+      success: false,
+      error: true,
+      message: "User not found!",
     };
   }
 };
