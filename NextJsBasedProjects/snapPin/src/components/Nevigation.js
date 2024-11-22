@@ -7,7 +7,7 @@ import { SiAuthelia } from "react-icons/si";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
 import { CiLogin, CiLogout } from "react-icons/ci";
-
+import Swal from "sweetalert2";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { signIn, signOut, useSession } from "next-auth/react";
@@ -53,6 +53,28 @@ const Nevigation = ({ children }) => {
   }
   const navMenu = menuItems.find((menuItem) => menuItem.path == pathName);
 
+  const handleLogOut = () => {
+    Swal.fire({
+      title: "Do you want to Logout?",
+      text: "You will need to login again.",
+      showCancelButton: true,
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      position: "center",
+      customClass: {
+        popup: "w-80 h-auto bg-[#e8f0ff]",
+        title: "text-xl font-bold", // Custom Tailwind classes for title
+        confirmButton: "bg-blue-500 text-white px-4 py-1 rounded", // Tailwind for the 'Yes' button
+        cancelButton: "bg-red-500 text-white px-4 py-1 rounded", // Tailwind for the 'No' button
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        signOut();
+        return;
+      }
+      return;
+    });
+  };
   return (
     <div className="  w-full  bg-blue-50 z-10">
       {/* Top Navigation - Mobile Only */}
@@ -95,7 +117,7 @@ const Nevigation = ({ children }) => {
               {session ? (
                 // signout button
                 <button
-                  onClick={() => signOut()}
+                  onClick={handleLogOut}
                   className=" bg-blue-600  flex items-center gap-x-3 px-8 py-3 text-white font-bold hover:bg-blue-700 hover:text-gray-50 rounded-full mb-1 transition-colors"
                 >
                   <CiLogout size={24} color="white" />
@@ -143,7 +165,7 @@ const Nevigation = ({ children }) => {
               {session ? (
                 // signout button
                 <button
-                  onClick={() => signOut()}
+                  onClick={handleLogOut}
                   className="relative group   mx-auto aspect-square bg-blue-600  flex items-center justify-center p-2  text-white  hover:bg-blue-700 hover:text-gray-50 rounded-full  transition-colors"
                 >
                   <CiLogout size={24} color="white" />
@@ -187,7 +209,7 @@ const Nevigation = ({ children }) => {
             {session ? (
               // signout button
               <button
-                onClick={() => signOut()}
+                onClick={handleLogOut}
                 className="relative group    aspect-square bg-blue-600  flex items-center justify-center p-1  text-white  hover:bg-blue-700 hover:text-gray-50 rounded-full  transition-colors"
               >
                 <CiLogout size={22} color="white" className="rotate-180" />
